@@ -9,7 +9,7 @@ import subprocess
 # Parse command-line arguments
 parser = argparse.ArgumentParser(description="Manage ccbench traces on remote nodes")
 parser.add_argument("--collect", action="store_true", help="SCP zipped traces to target path")
-parser.add_argument("--target-path", type=str, default="mll:/datastor1/janec/ccbench-zips", help="Path to collect zipped traces")
+parser.add_argument("--target-path", type=str, default="mll:/datastor1/ishandas/ccbench-zips", help="Path to collect zipped traces")
 args = parser.parse_args()
 
 # Load server configuration
@@ -18,7 +18,7 @@ with open(CONFIG_FILE, "r") as file:
     config = yaml.safe_load(file)
 
 servers = config["servers"]
-username = "janechen"
+username = "ishandas"
 trace_dir = "/mydata/ccbench-traces"
 zip_path = "/mydata/ccbench-traces.zip"
 tmux_session = "ziptrace"

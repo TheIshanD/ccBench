@@ -9,7 +9,7 @@ import subprocess
 # Parse command-line arguments
 parser = argparse.ArgumentParser(description="Launch or collect dataset from remote nodes")
 parser.add_argument("--collect", action="store_true", help="Collect dataset files via scp")
-parser.add_argument("--target-path", type=str, default="mll:/datastor1/janec/datasets", help="Remote path to store collected files")
+parser.add_argument("--target-path", type=str, default="mll:/datastor1/ishandas/datasets", help="Remote path to store collected files")
 args = parser.parse_args()
 
 # Load server configuration
@@ -18,13 +18,13 @@ with open(CONFIG_FILE, "r") as file:
     config = yaml.safe_load(file)
 
 servers = config["servers"]
-username = "janechen"
+username = "ishandas"
 dataset_path_synthetic = "/mydata/ccbench-dataset/6col-rtt-20_synthetic.p"
 dataset_path_real = "/mydata/ccbench-dataset/6col-rtt-20_real.p"
 
 def scp_datasetgen_script(server):
     hostname = server["hostname"]
-    local_path = "/Users/janechen/Desktop/ccBench/pantheon-modified/src/experiments/palantir_datasetgen_rtt.py"
+    local_path = "/Users/ishandas/Desktop/ccBench/pantheon-modified/src/experiments/palantir_datasetgen_rtt.py"
     remote_path = f"{username}@{hostname}:~/ccBench/pantheon-modified/src/experiments/"
 
     print(f"Copying {local_path} to {remote_path} ...")

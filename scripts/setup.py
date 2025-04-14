@@ -18,7 +18,7 @@ with open(CONFIG_FILE, "r") as file:
     config = yaml.safe_load(file)
 
 servers = config["servers"]
-username = "janechen"
+username = "ishandas"
 
 def run_remote_commands(server, commands):
     """ SSH into the server and execute the given commands """
@@ -71,7 +71,7 @@ def setup_server(server_config):
     commands_before_reboot = [
         "sudo DEBIAN_FRONTEND=noninteractive apt-get update -y",
         "sudo DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential git debhelper autotools-dev dh-autoreconf iptables protobuf-compiler libprotobuf-dev pkg-config libssl-dev dnsmasq-base ssl-cert libxcb-present-dev libcairo2-dev libpango1.0-dev iproute2 apache2-dev apache2-bin gnuplot iproute2 apache2-api-20120211 libwww-perl",
-        "sudo chown -R janechen /mydata/",
+        "sudo chown -R ishandas /mydata/",
     
         "cd ~ && git clone https://github.com/Janecjy/ccBench.git",
         "cd ~/ccBench && git submodule update --init --recursive",

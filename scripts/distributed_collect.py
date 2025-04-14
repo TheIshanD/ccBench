@@ -15,7 +15,7 @@ with open(CONFIG_FILE, "r") as file:
     config = yaml.safe_load(file)
 
 servers = config["servers"]
-username = "janechen"
+username = "ishandas"
 
 # List of congestion control schemes
 cc_schemes = ["reno", "pure", "cubic", "vegas", "bbr", "cdg", "hybla", "highspeed", "illinois",
@@ -74,10 +74,10 @@ def run_remote_collection(server, schemes):
             "tmux new-session -d -s collect",
             "tmux send-keys -t collect 'cd ~/ccBench' C-m",
             "tmux send-keys -t collect 'source ~/venv/bin/activate' C-m",
-            "tmux send-keys -t collect 'python /users/janechen/ccBench/scripts/convert_real_to_mahimahi.py' C-m",
-            # "tmux send-keys -t collect 'python /users/janechen/ccBench/scripts/generate_mahimahi_traces.py' C-m",
+            "tmux send-keys -t collect 'python /users/ishandas/ccBench/scripts/convert_real_to_mahimahi.py' C-m",
+            # "tmux send-keys -t collect 'python /users/ishandas/ccBench/scripts/generate_mahimahi_traces.py' C-m",
             "tmux send-keys -t collect 'deactivate' C-m",
-            "tmux send-keys -t collect 'cd /users/janechen/ccBench/pantheon-modified/src/experiments' C-m",
+            "tmux send-keys -t collect 'cd /users/ishandas/ccBench/pantheon-modified/src/experiments' C-m",
             f"tmux send-keys -t collect './palantir_collect.sh {schemes_str}' C-m"
         ]
 

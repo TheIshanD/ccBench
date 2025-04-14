@@ -22,7 +22,7 @@ new_nodes=(
 )
 
 # Ensure local node has the SSH key access
-LOCAL_NODE="janechen@$(hostname)"
+LOCAL_NODE="ishandas@$(hostname)"
 
 # Check if we should only perform the second part (transfer after zip completion)
 TRANSFER_ONLY=false
@@ -38,16 +38,16 @@ for i in "${!original_nodes[@]}"; do
     
     if [ "$TRANSFER_ONLY" = false ]; then
         # Start the zip process inside a tmux session on the old node
-        ssh janechen@$old_node "tmux new-session -d -s zip_session 'zip -r /mydata/traces-1.zip /mydata/ccbench-traces/'"
+        ssh ishandas@$old_node "tmux new-session -d -s zip_session 'zip -r /mydata/traces-1.zip /mydata/ccbench-traces/'"
         echo "Started zip process in tmux on $old_node. Run script again with 'transfer' argument after completion."
     else
 
         # Set ownership on the new node
-        ssh janechen@$new_node "sudo chown -R janechen /mydata/"
+        ssh ishandas@$new_node "sudo chown -R ishandas /mydata/"
         
         # Use scp -3 to transfer the archive from old node to new node via the local machine
         echo "Transferring /mydata/traces-1.zip from $old_node to $new_node..."
-        scp -3 janechen@$old_node:/mydata/traces-1.zip janechen@$new_node:/mydata/
+        scp -3 ishandas@$old_node:/mydata/traces-1.zip ishandas@$new_node:/mydata/
         
         
         

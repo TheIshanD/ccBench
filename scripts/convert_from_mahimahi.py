@@ -37,8 +37,8 @@ def convert_mahimahi_to_bandwidth(trace_file, output_file):
     print(f"Converted {trace_file} -> {output_file}")
 
 # Directory for Mahimahi traces
-TRACE_DIR = "/home/jane/Desktop/ccBench/traces"
-OUTPUT_DIR = "/home/jane/Desktop/ccBench/traces_bw"
+TRACE_DIR = "/home/ishandas/Desktop/ccBench/traces"
+OUTPUT_DIR = "/home/ishandas/Desktop/ccBench/traces_bw"
 
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
